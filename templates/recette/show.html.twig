@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recette{% endblock %}
+
+{% block body %}
+    <h1>Recette</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Date</th>
+                <td>{{ recette.date ? recette.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ReferencePiece</th>
+                <td>{{ recette.referencePiece }}</td>
+            </tr>
+            <tr>
+                <th>Nature</th>
+                <td>{{ recette.nature }}</td>
+            </tr>
+            <tr>
+                <th>MontantHT</th>
+                <td>{{ recette.montantHT }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ recette.tva }}</td>
+            </tr>
+            <tr>
+                <th>MontantTTC</th>
+                <td>{{ recette.montantTTC }}</td>
+            </tr>
+            <tr>
+                <th>Moyen</th>
+                <td>{{ recette.moyen }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ recette.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ recette.createdAt ? recette.createdAt|date('Y-m-d H:i:s T') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ recette.updatedAt ? recette.updatedAt|date('Y-m-d H:i:s T') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('recette_index') }}">back to list</a>
+
+    <a href="{{ path('recette_edit', {'id': recette.id}) }}">edit</a>
+
+    {{ include('recette/_delete_form.html.twig') }}
+{% endblock %}

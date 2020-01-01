@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Depense{% endblock %}
+
+{% block body %}
+    <h1>Depense</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Date</th>
+                <td>{{ depense.date ? depense.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>ReferencePiece</th>
+                <td>{{ depense.referencePiece }}</td>
+            </tr>
+            <tr>
+                <th>Nature</th>
+                <td>{{ depense.nature }}</td>
+            </tr>
+            <tr>
+                <th>MontantHT</th>
+                <td>{{ depense.montantHT }}</td>
+            </tr>
+            <tr>
+                <th>Tva</th>
+                <td>{{ depense.tva }}</td>
+            </tr>
+            <tr>
+                <th>MontantTTC</th>
+                <td>{{ depense.montantTTC }}</td>
+            </tr>
+            <tr>
+                <th>Moyen</th>
+                <td>{{ depense.moyen }}</td>
+            </tr>
+            <tr>
+                <th>Id</th>
+                <td>{{ depense.id }}</td>
+            </tr>
+            <tr>
+                <th>CreatedAt</th>
+                <td>{{ depense.createdAt ? depense.createdAt|date('Y-m-d H:i:s T') : '' }}</td>
+            </tr>
+            <tr>
+                <th>UpdatedAt</th>
+                <td>{{ depense.updatedAt ? depense.updatedAt|date('Y-m-d H:i:s T') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('depense_index') }}">back to list</a>
+
+    <a href="{{ path('depense_edit', {'id': depense.id}) }}">edit</a>
+
+    {{ include('depense/_delete_form.html.twig') }}
+{% endblock %}
