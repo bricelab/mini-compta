@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Fournisseur index{% endblock %}
+
+{% block body %}
+    <h1>Fournisseur index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Numero</th>
+                <th>Nom_complet</th>
+                <th>Adresse</th>
+                <th>Email</th>
+                <th>Ville</th>
+                <th>Pays</th>
+                <th>Code_postal</th>
+                <th>Id</th>
+                <th>CreatedAt</th>
+                <th>UpdatedAt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for fournisseur in fournisseurs %}
+            <tr>
+                <td>{{ fournisseur.numero }}</td>
+                <td>{{ fournisseur.nomComplet }}</td>
+                <td>{{ fournisseur.adresse }}</td>
+                <td>{{ fournisseur.email }}</td>
+                <td>{{ fournisseur.ville }}</td>
+                <td>{{ fournisseur.pays }}</td>
+                <td>{{ fournisseur.codePostal }}</td>
+                <td>{{ fournisseur.id }}</td>
+                <td>{{ fournisseur.createdAt ? fournisseur.createdAt|date('Y-m-d H:i:s T') : '' }}</td>
+                <td>{{ fournisseur.updatedAt ? fournisseur.updatedAt|date('Y-m-d H:i:s T') : '' }}</td>
+                <td>
+                    <a href="{{ path('fournisseur_show', {'id': fournisseur.id}) }}">show</a>
+                    <a href="{{ path('fournisseur_edit', {'id': fournisseur.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('fournisseur_new') }}">Create new</a>
+{% endblock %}
