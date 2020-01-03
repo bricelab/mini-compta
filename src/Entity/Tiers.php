@@ -46,6 +46,11 @@ class Tiers
      */
     private $code_postal;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $telephone;
+
     public function __toString()
     {
         return (string) $this->nom_complet . "(" . $this->numero .")";
@@ -136,6 +141,18 @@ class Tiers
     public function setCodePostal(?string $code_postal): self
     {
         $this->code_postal = $code_postal;
+
+        return $this;
+    }
+
+    public function getTelephone(): ?string
+    {
+        return $this->telephone;
+    }
+
+    public function setTelephone(?string $telephone): self
+    {
+        $this->telephone = $telephone;
 
         return $this;
     }

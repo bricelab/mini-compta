@@ -19,6 +19,7 @@ class RecetteType extends AbstractType
             ->add('tva')
             ->add('montantTTC')
             ->add('moyen')
+            ->add('description')
             // ->add('createdAt')
             // ->add('updatedAt')
             ->add('client')
